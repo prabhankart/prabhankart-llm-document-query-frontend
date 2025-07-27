@@ -8,8 +8,8 @@ export async function uploadFile(file, generateSummary) {
   formData.append('generateSummary', generateSummary);
 
   try {
-    // Use the dynamic BACKEND_URL
-    const response = await fetch(`${BACKEND_URL}/upload`, {
+    // Use the dynamic BACKEND_URL and add the /api prefix
+    const response = await fetch(`${BACKEND_URL}/api/upload`, { // <-- CORRECTED
       method: 'POST',
       body: formData,
     });
@@ -26,8 +26,8 @@ export async function uploadFile(file, generateSummary) {
 
 export async function sendQuery(query) {
   try {
-    // Use the dynamic BACKEND_URL
-    const response = await fetch(`${BACKEND_URL}/query`, {
+    // Use the dynamic BACKEND_URL and add the /api prefix
+    const response = await fetch(`${BACKEND_URL}/api/query`, { // <-- CORRECTED
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ query }),
